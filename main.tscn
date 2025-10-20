@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl0sblth3rsms"]
+[gd_scene load_steps=12 format=3 uid="uid://bl0sblth3rsms"]
 
 [ext_resource type="TorusMesh" uid="uid://5wf7ab02tbum" path="res://chrome_rose_skin.tres" id="1_0xm2m"]
 [ext_resource type="Environment" uid="uid://7onx2807fkd2" path="res://environment.tres" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://flj10nko3j8g" path="res://camera_pivot.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://btvngwm342fek" path="res://Player.tscn" id="4_1bvp3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7dm0k"]
 top_radius = 30.0
@@ -117,3 +118,6 @@ scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_lquwl")
 color = Color(1, 0.6, 0.8666667, 1)
 color_ramp = SubResource("Gradient_7mycd")
+
+[node name="Player" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013963699, 0.44574094, 0.01649189)
