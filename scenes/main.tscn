@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl0sblth3rsms"]
+[gd_scene load_steps=14 format=3 uid="uid://bl0sblth3rsms"]
 
-[ext_resource type="TorusMesh" uid="uid://5wf7ab02tbum" path="res://chrome_rose_skin.tres" id="1_0xm2m"]
-[ext_resource type="Environment" uid="uid://7onx2807fkd2" path="res://environment.tres" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://flj10nko3j8g" path="res://camera_pivot.gd" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://btvngwm342fek" path="res://Player.tscn" id="4_1bvp3"]
+[ext_resource type="TorusMesh" uid="uid://5wf7ab02tbum" path="res://chrome_rose_skin.tres" id="1_tefeu"]
+[ext_resource type="Environment" uid="uid://7onx2807fkd2" path="res://environment.tres" id="2_o6xl0"]
+[ext_resource type="Script" uid="uid://flj10nko3j8g" path="res://camera_pivot.gd" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://b58xv1joypxo5" path="res://assets/textures/grids/Orange/texture_09.png" id="4_85g3d"]
+[ext_resource type="Texture2D" uid="uid://dkeke5ukexb6v" path="res://assets/textures/grids/Green/texture_03.png" id="5_choun"]
+[ext_resource type="Texture2D" uid="uid://bj2tjclvfiove" path="res://assets/textures/grids/Purple/texture_05.png" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://btvngwm342fek" path="res://scenes/Player.tscn" id="7_o6xl0"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7dm0k"]
 top_radius = 30.0
@@ -20,21 +23,16 @@ emission_energy_multiplier = 0.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0xm2m"]
 height = 0.5
-radius = 10.0
+radius = 30.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
-transparency = 1
-albedo_color = Color(1, 0.72156864, 0.9647059, 1)
-emission_enabled = true
-emission = Color(1, 0.4, 0.8, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
+albedo_texture = ExtResource("4_85g3d")
 
-[sub_resource type="SphereMesh" id="SphereMesh_1bvp3"]
-radius = 0.2
-height = 0.4
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+albedo_texture = ExtResource("5_choun")
 
-[sub_resource type="Curve" id="Curve_lquwl"]
-
-[sub_resource type="Gradient" id="Gradient_7mycd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
+albedo_texture = ExtResource("6_ya4ey")
 
 [node name="Main" type="Node3D"]
 
@@ -50,11 +48,11 @@ shape = SubResource("CylinderShape3D_0xm2m")
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Arena"]
-mesh = ExtResource("1_0xm2m")
+mesh = ExtResource("1_tefeu")
 metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_ig7tw")
+environment = ExtResource("2_o6xl0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8660254, -0.3535534, 0.3535534, 0, 0.7071068, 0.7071068, -0.5, -0.61237246, 0.61237246, 0, 68.267365, 0)
@@ -93,31 +91,29 @@ transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.766
 fov = 65.0
 
 [node name="CameraPivot" type="Node3D" parent="."]
-script = ExtResource("3_h2yge")
+script = ExtResource("3_tipki")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 16.402168, 33.62161)
+current = true
 fov = 65.0
 
-[node name="Bulle" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_h2yge")
-amount = 200
-lifetime = 10.0
-preprocess = 5.0
-speed_scale = 0.2
-mesh = SubResource("SphereMesh_1bvp3")
-emission_shape = 1
-emission_sphere_radius = 30.0
-spread = 180.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 0.1
-initial_velocity_max = 0.3
-scale_amount_min = 0.1
-scale_amount_max = 0.15
-scale_amount_curve = SubResource("Curve_lquwl")
-color = Color(1, 0.6, 0.8666667, 1)
-color_ramp = SubResource("Gradient_7mycd")
+[node name="box1" type="CSGBox3D" parent="."]
+transform = Transform3D(0.87897533, 0, -0.4768673, 0, 1, 0, 0.4768673, 0, 0.87897533, 0.48112893, 1.3496737, 4.9455223)
+material_override = SubResource("StandardMaterial3D_eb6dy")
+use_collision = true
+size = Vector3(2, 2, 2)
 
-[node name="Player" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013963699, 0.44574094, 0.01649189)
+[node name="box2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.87897533, 0, -0.4768673, 0, 1, 0, 0.4768673, 0, 0.87897533, 6.330221, 0.98700404, 1.4797274)
+material_override = SubResource("StandardMaterial3D_trceg")
+use_collision = true
+
+[node name="box3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.87897533, 0, -0.4768673, 0, 1, 0, 0.4768673, 0, 0.87897533, 1.298358, 1.3835304, -3.8189442)
+material_override = SubResource("StandardMaterial3D_a8y0u")
+use_collision = true
+size = Vector3(1, 2, 1)
+
+[node name="Player" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.889051, 0.6028279, -0.6224394)
