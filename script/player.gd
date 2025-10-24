@@ -17,6 +17,7 @@ var is_locked = false
 @export var sens_horizontal = 0.2
 @export var sens_vertical = 0.2
 
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

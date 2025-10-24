@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bl0sblth3rsms"]
+[gd_scene load_steps=19 format=3 uid="uid://bl0sblth3rsms"]
 
 [ext_resource type="TorusMesh" uid="uid://5wf7ab02tbum" path="res://chrome_rose_skin.tres" id="1_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bejjp0rxsqeao" path="res://assets/textures/grids/Light/texture_03.png" id="1_tipki"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chfn1iyg8h86w" path="res://assets/textures/grids/Light/texture_09.png" id="7_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://c60h7aap3pgnt" path="res://assets/textures/grids/Light/texture_08.png" id="8_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://c0rbj02fx21ld" path="res://assets/textures/grids/Light/texture_07.png" id="9_trceg"]
+[ext_resource type="PackedScene" uid="uid://bcqmefuwp7hml" path="res://scenes/Zombie.tscn" id="11_ya4ey"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
 albedo_color = Color(1, 0.7058824, 0.9490196, 0.84313726)
@@ -141,3 +142,6 @@ transform = Transform3D(0.8660254, -0.3535534, 0.3535534, 0, 0.7071068, 0.707106
 light_color = Color(1, 0.72156864, 0.9647059, 1)
 light_energy = 2.325
 shadow_enabled = true
+
+[node name="Zombie" parent="." instance=ExtResource("11_ya4ey")]
+transform = Transform3D(-0.97585964, 0, -0.2183988, 0, 1, 0, 0.2183988, 0, -0.97585964, 12.239135, 0, -1.3473115)
