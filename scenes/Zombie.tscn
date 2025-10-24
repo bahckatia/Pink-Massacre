@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcqmefuwp7hml"]
+
+[ext_resource type="PackedScene" uid="uid://cq14mvy6pot5u" path="res://assets/models/zombie.glb" id="1_blicy"]
+[ext_resource type="Script" uid="uid://d33ts6mqe1btx" path="res://script/zombie.gd" id="1_t3ikf"]
+
+[node name="Zombie" type="CharacterBody3D"]
+script = ExtResource("1_t3ikf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="HitBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+
+[node name="visuals" type="Node3D" parent="."]
+
+[node name="Sketchfab_Scene" parent="visuals" instance=ExtResource("1_blicy")]
