@@ -1,0 +1,147 @@
+[gd_scene load_steps=19 format=3 uid="uid://bl0sblth3rsms"]
+
+[ext_resource type="TorusMesh" uid="uid://5wf7ab02tbum" path="res://chrome_rose_skin.tres" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bejjp0rxsqeao" path="res://assets/textures/grids/Light/texture_03.png" id="1_tipki"]
+[ext_resource type="Environment" uid="uid://7onx2807fkd2" path="res://environment.tres" id="2_o6xl0"]
+[ext_resource type="Script" uid="uid://flj10nko3j8g" path="res://camera_pivot.gd" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://cm5m7nr7dugjd" path="res://assets/textures/grids/Purple/texture_09.png" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://bj2tjclvfiove" path="res://assets/textures/grids/Purple/texture_05.png" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://btvngwm342fek" path="res://scenes/Player.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://chfn1iyg8h86w" path="res://assets/textures/grids/Light/texture_09.png" id="7_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://c60h7aap3pgnt" path="res://assets/textures/grids/Light/texture_08.png" id="8_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://c0rbj02fx21ld" path="res://assets/textures/grids/Light/texture_07.png" id="9_trceg"]
+[ext_resource type="PackedScene" uid="uid://bcqmefuwp7hml" path="res://scenes/Zombie.tscn" id="11_ya4ey"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+albedo_color = Color(1, 0.7058824, 0.9490196, 0.84313726)
+albedo_texture = ExtResource("1_tipki")
+metallic = 0.5
+roughness = 0.05
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
+albedo_texture = ExtResource("6_choun")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbj1t"]
+albedo_texture = ExtResource("1_tipki")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muem4"]
+albedo_texture = ExtResource("7_ya4ey")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp3eg"]
+albedo_texture = ExtResource("8_eb6dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
+albedo_texture = ExtResource("9_trceg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
+albedo_texture = ExtResource("6_ya4ey")
+
+[node name="Main" type="Node3D"]
+
+[node name="Arena" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Arena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026495457, 0.009447813, -0.056241393)
+material_override = SubResource("StandardMaterial3D_85g3d")
+use_collision = true
+radius = 30.0
+height = 0.001
+sides = 64
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Arena"]
+mesh = ExtResource("1_tefeu")
+skeleton = NodePath("")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_o6xl0")
+
+[node name="CameraStatique" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.7660445, 0, 14.489231, 37.383564)
+fov = 65.0
+
+[node name="CameraPivot" type="Node3D" parent="."]
+script = ExtResource("3_tipki")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 16.402168, 33.62161)
+current = true
+fov = 65.0
+
+[node name="Player" parent="." instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4345818, 0.1581617, -0.6224394)
+
+[node name="Objetcs" type="Node3D" parent="."]
+
+[node name="box1" type="CSGBox3D" parent="Objetcs"]
+transform = Transform3D(0.99000645, 0, -0.14102218, 0, 1, 0, 0.14102218, 0, 0.99000645, 4.6318283, 1.580195, 9.836954)
+material_override = SubResource("StandardMaterial3D_jkv2x")
+use_collision = true
+size = Vector3(5, 3, 1)
+
+[node name="box2" type="CSGBox3D" parent="Objetcs"]
+transform = Transform3D(0.87897533, 0, -0.4768673, 0, 1, 0, 0.4768673, 0, 0.87897533, 1.811587, 0.49726188, 8.526986)
+material_override = SubResource("StandardMaterial3D_jbj1t")
+use_collision = true
+size = Vector3(0.94873047, 1, 1)
+
+[node name="box5" type="CSGBox3D" parent="Objetcs"]
+transform = Transform3D(0.6289677, 0, -0.7774315, 0, 1, 0, 0.7774315, 0, 0.6289677, 2.0026054, 0.49726188, 7.2790647)
+material_override = SubResource("StandardMaterial3D_muem4")
+use_collision = true
+size = Vector3(0.94873047, 1, 1)
+
+[node name="box4" type="CSGBox3D" parent="Objetcs"]
+transform = Transform3D(0.17572758, 0, -0.98443884, 0, 1, 0, 0.98443884, 0, 0.17572758, 3.0383759, 0.5263313, 7.9628563)
+material_override = SubResource("StandardMaterial3D_dp3eg")
+use_collision = true
+size = Vector3(0.94873047, 1, 1)
+
+[node name="box6" type="CSGBox3D" parent="Objetcs"]
+transform = Transform3D(0.8324187, 0, -0.55414724, 0, 1, 0, 0.55414724, 0, 0.8324187, 2.37414, 1.5380677, 7.9628563)
+material_override = SubResource("StandardMaterial3D_0ld40")
+use_collision = true
+size = Vector3(0.94873047, 1, 1)
+
+[node name="box3" type="CSGBox3D" parent="Objetcs"]
+transform = Transform3D(0.87897533, 0, -0.4768673, 0, 1.9935445, 0, 0.4768673, 0, 0.87897533, 6.6885853, 2.0258195, -4.109634)
+material_override = SubResource("StandardMaterial3D_a8y0u")
+use_collision = true
+size = Vector3(2.215, 2, 1)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="LumiereSceneRose" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.7014939, 0.492339, -0.51527536, -6.9093624e-09, 0.7230154, 0.69083196, 0.7126755, 0.48461437, -0.50719094, -23.049513, 21.317997, -22.949953)
+light_color = Color(1, 0, 1, 1)
+light_energy = 15.0
+shadow_enabled = true
+spot_range = 20.0
+spot_angle = 70.0
+spot_angle_attenuation = 0.7845841
+
+[node name="LumiereSceneBlanche" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-0.14592771, -0.6834368, 0.7152757, 2.5992056e-10, 0.7230154, 0.69083196, -0.98929524, 0.10081153, -0.10550798, 30.279888, 21.258846, -12.639595)
+light_energy = 15.0
+shadow_enabled = true
+spot_range = 20.0
+spot_angle = 70.0
+spot_angle_attenuation = 0.7845841
+
+[node name="LumiereSceneBleu" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.7230154, 0.69083196, 0, -0.69083196, 0.7230154, -5.146406, 21.151318, 28.524382)
+light_color = Color(0, 0.6666667, 1, 1)
+light_energy = 15.0
+shadow_enabled = true
+spot_range = 20.0
+spot_angle = 70.0
+spot_angle_attenuation = 0.7845841
+
+[node name="Sun" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.8660254, -0.3535534, 0.3535534, 0, 0.7071068, 0.7071068, -0.5, -0.61237246, 0.61237246, 0, 68.267365, 0)
+light_color = Color(1, 0.72156864, 0.9647059, 1)
+light_energy = 2.325
+shadow_enabled = true
+
+[node name="Zombie" parent="." instance=ExtResource("11_ya4ey")]
+transform = Transform3D(-0.97585964, 0, -0.2183988, 0, 1, 0, 0.2183988, 0, -0.97585964, 12.239135, 0, -1.3473115)
