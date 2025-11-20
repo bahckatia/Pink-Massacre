@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://diff0fyoctxi"]
+
+[ext_resource type="Script" uid="uid://cxvhqnpt5ddkb" path="res://script/main_menu.gd" id="1_l72w3"]
+[ext_resource type="PackedScene" uid="uid://bdq6ajic6fjrf" path="res://assets/models/mixamo_base.glb" id="1_yqorp"]
+[ext_resource type="Script" uid="uid://jtk8gtww3n7n" path="res://script/camera_rig.gd" id="2_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://b376rko1pbh4m" path="res://assets/images/play_icon_white.png" id="2_ow34m"]
+[ext_resource type="Texture2D" uid="uid://bprijijj8r5p7" path="res://assets/images/logo_rosechrome.png" id="3_2wh52"]
+[ext_resource type="Texture2D" uid="uid://cq0p1lbcx8isj" path="res://assets/images/quit_icon_white.png" id="3_l72w3"]
+[ext_resource type="FontFile" uid="uid://bhwr23s5cac1f" path="res://assets/fonts/EgorycastlePersonal.ttf" id="4_826wr"]
+
+[sub_resource type="Environment" id="Environment_0ykhv"]
+background_mode = 1
+background_color = Color(0.22168404, 0.13178486, 0.25106245, 1)
+ambient_light_color = Color(0.4738207, 0.27027506, 0.3967827, 1)
+ambient_light_energy = 0.3
+glow_enabled = true
+glow_levels/1 = 1.0
+glow_levels/5 = 0.0
+glow_strength = 1.2
+glow_bloom = 0.3
+fog_enabled = true
+fog_light_color = Color(0.17441732, 0.04886034, 0.140468, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wh52"]
+albedo_color = Color(0.9539922, 0.3458198, 0.5647208, 1)
+metallic = 0.7
+roughness = 0.3
+emission_enabled = true
+emission = Color(1, 0.4117647, 0.7058824, 1)
+emission_energy_multiplier = 0.11
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow34m"]
+albedo_color = Color(1, 0.6051856, 0.7201075, 1)
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_l72w3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0ykhv")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2wh52")
+radius = 1.5
+height = 0.4329834
+sides = 64
+
+[node name="Decorations" type="Node3D" parent="."]
+
+[node name="Sphere1" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27298874, 0.8471777, -0.7049657)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere2" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(0.9830731, -0.18321362, 0, 0.18321362, 0.9830731, 0, 0, 0, 1, 0.53317523, 0.88526565, 0.30843002)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere3" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20694083, 1.242208, -0.5718539)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere4" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48047286, 1.5154071, -0.27777356)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere5" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7772979, 0.44683385, -0.065345965)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere6" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4145285, 0.43902463, 0.7414955)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere7" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108817935, 0.71384305, 0.8835064)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere8" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8042238, 0.5999118, 0.119386435)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere9" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52595735, 0.82237166, -0.5115371)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="Sphere10" type="CSGSphere3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36406642, 1.3135173, 0.45082784)
+material_override = SubResource("StandardMaterial3D_ow34m")
+radius = 0.05
+radial_segments = 100
+
+[node name="mixamo_base" parent="." instance=ExtResource("1_yqorp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11807707, 0.2006163, -0.013225853)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.010855775, 0.99994105, 0, -0.99994105, 0.010855775, 0, 5.120109, 0)
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("2_0ykhv")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.62437046, 0.78112847, 0, -0.78112847, 0.62437046, 0, 2.523663, 1.0255077)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Logo" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = 115.0
+offset_right = -182.0
+offset_bottom = -291.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 100)
+texture = ExtResource("3_2wh52")
+expand_mode = 2
+
+[node name="PlayButton" type="Button" parent="UI"]
+offset_left = 421.0
+offset_top = 258.0
+offset_right = 761.0
+offset_bottom = 582.0
+theme_override_fonts/font = ExtResource("4_826wr")
+theme_override_font_sizes/font_size = 64
+text = "Ready ?"
+icon = ExtResource("2_ow34m")
+flat = true
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="UI"]
+offset_left = 967.0
+offset_top = 588.0
+offset_right = 1142.0
+offset_bottom = 637.0
+theme_override_fonts/font = ExtResource("4_826wr")
+theme_override_font_sizes/font_size = 30
+text = "Quitter"
+icon = ExtResource("3_l72w3")
+flat = true
+expand_icon = true
