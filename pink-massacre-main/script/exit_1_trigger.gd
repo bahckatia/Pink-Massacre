@@ -67,4 +67,4 @@ func _animate_light(light: Light3D):
 func _teleport_to_void():
 	print("Téléportation vers le vide...")
 	# Charger la scène du vide
-	get_tree().change_scene_to_file("res://scenes/fin_1_void.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/fin_4_debug.tscn")
