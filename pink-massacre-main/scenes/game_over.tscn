@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq7b65deduwls"]
+
+[ext_resource type="Script" uid="uid://wo0sd62r4yki" path="res://script/game_over.gd" id="1_racf3"]
+[ext_resource type="FontFile" uid="uid://bhwr23s5cac1f" path="res://assets/fonts/EgorycastlePersonal.ttf" id="1_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://bk0d7hb5bal07" path="res://assets/images/replay.png" id="2_racf3"]
+[ext_resource type="Texture2D" uid="uid://brpjm8u8fhld5" path="res://assets/images/menu.png" id="3_7m3ot"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_racf3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1153.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 644.0
+color = Color(1, 0, 0, 1)
+
+[node name="DeathMessage" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 228.0
+offset_top = 174.0
+offset_right = 931.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.078431375, 0.5764706, 1)
+theme_override_colors/font_shadow_color = Color(0.54509807, 0.039215688, 0.3137255, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_tbwuq")
+theme_override_font_sizes/font_size = 90
+text = "TRAPPED FOREVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 291.0
+offset_right = 944.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(1, 0.7019608, 0.8509804, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_tbwuq")
+theme_override_font_sizes/font_size = 40
+text = "We knew you were not ready..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 347.0
+offset_right = 774.0
+offset_bottom = 498.0
+theme_override_fonts/font = ExtResource("1_tbwuq")
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+icon = ExtResource("2_racf3")
+flat = true
+expand_icon = true
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 350.0
+offset_right = 518.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("1_tbwuq")
+theme_override_font_sizes/font_size = 30
+text = "Menu"
+icon = ExtResource("3_7m3ot")
+flat = true
+expand_icon = true
